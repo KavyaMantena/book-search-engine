@@ -21,6 +21,8 @@ const server = new ApolloServer({
     const token = req.headers.authorization;
     // verify token and get user data out of it
     try {
+      console.log("token", token);
+      console.log(typeof token);
       if (token && token !== "null" && token !== "undefined") {
         const verified = jwt.verify(token, secret, {
           maxAge: expiration,
